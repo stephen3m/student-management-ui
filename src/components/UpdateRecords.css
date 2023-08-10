@@ -1,0 +1,59 @@
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#changeFnButton {
+    background-color: #fa8c8c;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#changeFnButton:hover {
+    background-color: #e65c5c;
+}
+
+#changeLnButton {
+    background-color: #9b6bfa;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#changeLnButton:hover {
+    background-color: #734dbd;
+}
+
+#submitFnButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submitFnButton:hover {
+    background-color: #0056b3;
+}
+
+#submitLnButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submitLnButton:hover {
+    background-color: #0056b3;
+}

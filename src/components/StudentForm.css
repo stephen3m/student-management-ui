@@ -1,0 +1,43 @@
+#studentForm {
+    margin-bottom: 20px;
+}
+
+#studentForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#studentForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#studentForm #submitButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#studentForm #submitButton:hover {
+    background-color: #0056b3;
+}
+
+#clearButton {
+    background-color: #fa7564;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#clearButton:hover {
+    background-color: #c74228;
+}
