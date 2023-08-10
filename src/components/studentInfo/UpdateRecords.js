@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './UpdateRecords.css';
 
-function UpdateRecords({ onUpdateFirstName, onUpdateLastName }) {
+function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) {
   const [studentId, setStudentId] = useState('');
   const [updatedFirstName, setUpdatedFirstName] = useState('');
   const [updatedLastName, setUpdatedLastName] = useState('');
@@ -38,6 +38,16 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName }) {
     }
   };
 
+  const handleDeleteStudent = async () => {
+    try {
+      await onDeleteStudent();
+      // Reset the form inputs here
+    } catch (error) {
+      console.error('Error deleting student:', error);
+      alert('Error deleting student.'); // Show an alert message
+    }
+  };
+
   return (
     <div className="container">
       <h1>Change Student Records</h1>
@@ -47,6 +57,7 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName }) {
 
       <button type="button" id="changeFnButton" onClick={revealFnDiv}>Change first name</button><br /><br />
       <button type="button" id="changeLnButton" onClick={revealLnDiv}>Change last name</button><br /><br />
+      <button type="button" id="deleteStudentButton" onClick={handleDeleteStudent}>Delete Student</button><br /><br />
 
       {showFnDiv && (
         <div id="fnDiv">

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import StudentForm from './components/StudentForm'
-import StudentRecords from './components/StudentRecords'
-import UpdateRecords from './components/UpdateRecords'
+import StudentForm from './components/studentInfo/StudentForm'
+import StudentRecords from './components/studentInfo/StudentRecords'
+import UpdateRecords from './components/studentInfo/UpdateRecords'
+import useFetchData from './hooks/useFetchData.js'
 
 function App() {
   const submitData = async (studentData) => {
@@ -106,7 +107,7 @@ function App() {
        }
    }
 
-   async function updateLastName() {
+    async function updateLastName() {
        const studentId = parseInt(document.getElementById('studentId1').value);
        const newLastName = document.getElementById('updateStudentLn').value;
 
@@ -139,6 +140,27 @@ function App() {
        }
    }
 
+  async function deleteStudent() {
+      const studentId = parseInt(document.getElementById('studentId1').value);
+
+      const url = `http://localhost:8080/students/delete/${studentId}`;
+      const options = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const data = await response.text();
+        console.log(data); // Log the response from the server
+        fetchData(); // Refresh the student list after deletion
+      } catch (error) {
+        console.error('Error:', error);
+      }
+   }
+
   return (
     <div className="container">
       <StudentForm onSubmit={submitData} onClearData={clearData} />
@@ -146,6 +168,7 @@ function App() {
       <UpdateRecords
           onUpdateFirstName={updateFirstName}
           onUpdateLastName={updateLastName}
+          onDeleteStudent={deleteStudent}
       />
     </div>
   );

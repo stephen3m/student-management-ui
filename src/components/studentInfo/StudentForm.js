@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import './StudentForm.css';
 
 function StudentForm({ onSubmit, onClearData }) {
-  const [studentId, setStudentId] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
   const handleSubmit = async () => {
     const studentData = {
-      id: parseInt(studentId),
       firstName: firstName,
       lastName: lastName
     };
@@ -16,7 +14,6 @@ function StudentForm({ onSubmit, onClearData }) {
     try {
       await onSubmit(studentData);
       // Reset the form inputs
-      setStudentId('');
       setFirstName('');
       setLastName('');
     } catch (error) {
@@ -37,16 +34,6 @@ function StudentForm({ onSubmit, onClearData }) {
     <div className="container">
       <h1>Student Form</h1>
       <form id="studentForm">
-        <label htmlFor="studentId">Student ID:</label>
-        <input
-          type="number"
-          id="studentId"
-          name="studentId"
-          required
-          value={studentId}
-          onChange={(e) => setStudentId(e.target.value)}
-        /><br /><br />
-
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
