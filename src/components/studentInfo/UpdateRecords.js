@@ -21,7 +21,8 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
   const handleUpdateFirstName = async () => {
     try {
       await onUpdateFirstName(studentId, updatedFirstName);
-      // Reset the form inputs here
+      setStudentId('');
+      setUpdatedFirstName('');
     } catch (error) {
       console.error('Error updating first name:', error);
       alert('Error updating first name.'); // Show an alert message
@@ -31,7 +32,8 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
   const handleUpdateLastName = async () => {
     try {
       await onUpdateLastName(studentId, updatedLastName);
-      // Reset the form inputs here
+      setStudentId('');
+      setUpdatedLastName('');
     } catch (error) {
       console.error('Error updating last name:', error);
       alert('Error updating last name.'); // Show an alert message
@@ -53,7 +55,7 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
       <h1>Change Student Records</h1>
       <h3>Enter the ID of the student and click the button corresponding to what information you would like to change. Enter that information and finally, hit the submit button: </h3>
       <label htmlFor="studentId1">Student ID:</label>
-      <input type="number" id="studentId1" name="studentId1" required /><br /><br />
+      <input type="number" id="studentId1" name="studentId1" value={studentId} onChange={(e) => setStudentId(e.target.value)} required /><br /><br />
 
       <button type="button" id="changeFnButton" onClick={revealFnDiv}>Change first name</button><br /><br />
       <button type="button" id="changeLnButton" onClick={revealLnDiv}>Change last name</button><br /><br />

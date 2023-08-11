@@ -11,15 +11,16 @@ function StudentRecords({ fetchData, students }) {
   }, [students]);
 
   const sortTable = () => {
-    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    setSortOrder(newSortOrder);
-
     const sorted = [...sortedStudents]; // Create a copy to sort without mutating state
+
     sorted.sort((a, b) => {
       const nameA = a.lastName.toLowerCase();
       const nameB = b.lastName.toLowerCase();
-      return newSortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+      return nameA.localeCompare(nameB);
     });
+
+    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    setSortOrder(newSortOrder);
 
     setSortedStudents(sorted);
   };

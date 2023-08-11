@@ -3,7 +3,14 @@ import './App.css';
 import StudentForm from './components/studentInfo/StudentForm'
 import StudentRecords from './components/studentInfo/StudentRecords'
 import UpdateRecords from './components/studentInfo/UpdateRecords'
-import useFetchData from './hooks/useFetchData.js'
+//import {
+//  submitStudentData,
+//  clearStudentData,
+//  fetchData,
+//  updateStudentFirstName,
+//  updateStudentLastName,
+//  deleteStudent
+//} from './utils/apiFunctions';
 
 function App() {
   const submitData = async (studentData) => {
@@ -84,7 +91,6 @@ function App() {
        };
 
        const requestBody = {
-           id: 0,
            firstName: newFirstName,
            lastName: ""
        };
@@ -107,7 +113,7 @@ function App() {
        }
    }
 
-    async function updateLastName() {
+   async function updateLastName() {
        const studentId = parseInt(document.getElementById('studentId1').value);
        const newLastName = document.getElementById('updateStudentLn').value;
 
@@ -117,7 +123,6 @@ function App() {
        };
 
        const requestBody = {
-           id: 0,
            firstName: "",
            lastName: newLastName
        };
@@ -163,15 +168,15 @@ function App() {
 
   return (
     <div className="container">
-      <StudentForm onSubmit={submitData} onClearData={clearData} />
-      <StudentRecords fetchData={fetchData} students={students} />
-      <UpdateRecords
-          onUpdateFirstName={updateFirstName}
-          onUpdateLastName={updateLastName}
-          onDeleteStudent={deleteStudent}
-      />
-    </div>
-  );
-}
+        <StudentForm onSubmit={submitData} onClearData={clearData} />
+        <StudentRecords fetchData={fetchData} students={students} />
+        <UpdateRecords
+            onUpdateFirstName={updateFirstName}
+            onUpdateLastName={updateLastName}
+            onDeleteStudent={deleteStudent}
+        />
+      </div>
+    );
+  }
 
-export default App;
+  export default App;

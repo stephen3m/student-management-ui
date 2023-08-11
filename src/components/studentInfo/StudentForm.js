@@ -60,7 +60,7 @@ function StudentForm({ onSubmit, onClearData }) {
       </form>
 
       <button type="button" id="clearButton" onClick={handleClearData}>
-        Clear all entries
+        Delete all students
       </button><br /><br />
     </div>
   );
