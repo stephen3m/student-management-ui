@@ -17,17 +17,20 @@ function Sidebar() {
         <FontAwesomeIcon icon={faBars} />
       </button>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/lesson-scheduling">Lesson Scheduling</Link>
-        </li>
-        {/* TODO: Add more navigation links */}
+        {isOpen && (
+          <>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/lesson-scheduling">Lesson Scheduling</Link>
+            </li>
+            {/* TODO: Add more navigation links */}
+          </>
+        )}
       </ul>
     </div>
   );
 }
 
 export default Sidebar;
-

@@ -1,22 +1,38 @@
 .sidebar {
-  width: 0;
+  width: 0px;
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #333;
-  overflow-x: hidden;
+  background-color: #8a6a29;
   transition: 0.3s;
   padding-top: 60px;
+  position: fixed;
 }
 
 .sidebar.open {
-  width: 250px;
+  width: 190px;
+  border-right: 2px solid black;
 }
 
 .toggle-btn {
   position: absolute;
   top: 20px;
   left: 10px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 ul {
@@ -43,3 +59,4 @@ a {
   font-size: 24px;
   cursor: pointer;
 }
+

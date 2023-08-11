@@ -10,6 +10,7 @@ import {
   updateStudentLastName,
   deleteStudent
 } from '../../utils/apiFunctions';
+import Sidebar from '../../components/navigation/Sidebar';
 
 function Home() {
   const [students, setStudents] = useState([]);
