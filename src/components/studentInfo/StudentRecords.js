@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './StudentRecords.css';
 
-function StudentRecords({ fetchData, students }) {
+function StudentRecords({ fetchStudents, students }) {
   const [sortedStudents, setSortedStudents] = useState([]);
-  const [sortOrder, setSortOrder] = useState('asc'); // Default sorting order
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     // Initialize sortedStudents with students prop when students change
@@ -56,7 +56,7 @@ function StudentRecords({ fetchData, students }) {
 
       <br />
 
-      <button type="button" id="refreshButton" onClick={fetchData}>
+      <button type="button" id="refreshButton" onClick={fetchStudents}>
         Refresh Student Data
       </button>
       <br /><br />
