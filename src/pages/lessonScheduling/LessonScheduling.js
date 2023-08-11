@@ -11,6 +11,7 @@ import {
   updateDuration,
   deleteLesson
 } from '../../utils/lessonApiFunctions';
+import {fetchStudents} from '../../utils/homeApiFunctions';
 
 function LessonScheduling() {
   const [students, setStudents] = useState([]);
@@ -37,7 +38,7 @@ function LessonScheduling() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchLessons();
+        const data = await fetchStudents();
         setStudents(data);
       } catch (error) {
         console.error('Error:', error);
