@@ -1,44 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import StudentForm from './components/studentInfo/StudentForm'
-import StudentRecords from './components/studentInfo/StudentRecords'
-import UpdateRecords from './components/studentInfo/UpdateRecords'
-import {
-  submitStudentData,
-  clearStudentData,
-  fetchStudents,
-  updateStudentFirstName,
-  updateStudentLastName,
-  deleteStudent
-} from './utils/apiFunctions';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Sidebar from './components/navigation/Sidebar';
+import Home from './pages/home/Home';
+import LessonScheduling from './pages/lessonScheduling/LessonScheduling';
 
 function App() {
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchStudents();
-        setStudents(data);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
-    <div className="container">
-        <StudentForm onSubmit={submitStudentData} onClearData={clearStudentData} />
-        <StudentRecords fetchData={fetchStudents} students={students} />
-        <UpdateRecords
-            onUpdateFirstName={updateStudentFirstName}
-            onUpdateLastName={updateStudentLastName}
-            onDeleteStudent={deleteStudent}
-        />
+    <Router>
+      <div className="App">
+        <Sidebar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={(<Home />)} />
+            <Route path="/lesson-scheduling" element={<LessonScheduling />} />
+          </Routes>
+        </div>
       </div>
-    );
-  }
+    </Router>
+  );
+}
 
-  export default App;
+export default App;
