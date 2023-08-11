@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import StudentForm from '../../components/studentInfo/StudentForm';
 import StudentRecords from '../../components/studentInfo/StudentRecords';
 import UpdateRecords from '../../components/studentInfo/UpdateRecords';
+import './Home.css';
 import {
   submitStudentData,
   clearStudentData,
@@ -9,8 +10,7 @@ import {
   updateStudentFirstName,
   updateStudentLastName,
   deleteStudent
-} from '../../utils/apiFunctions';
-import Sidebar from '../../components/navigation/Sidebar';
+} from '../../utils/homeApiFunctions';
 
 function Home() {
   const [students, setStudents] = useState([]);
