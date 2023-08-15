@@ -62,6 +62,32 @@ export async function fetchLessons() {
   }
 }
 
+export async function fetchLessonDuration(lessonID) {
+  const url = `http://localhost:8080/lessons/duration/${lessonID}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.text();
+    return parseInt(data);
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
+
+export async function fetchLessonDateAndTime(lessonID) {
+  const url = `http://localhost:8080/lessons/dateAndTime/${lessonID}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
+
 export async function updateDateAndTime(lessonID, newDateAndTime) {
   const url = `http://localhost:8080/lessons/changeDateAndTime/${lessonID}`;
   const headers = {
@@ -131,7 +157,7 @@ export async function deleteLesson(lessonID) {
     const response = await fetch(url, options);
     const data = await response.text();
     refreshPage();
-    return data; // Return the response from the server
+    return data;
   } catch (error) {
     console.error('Error:', error);
     throw new Error('Error deleting lesson');

@@ -93,3 +93,57 @@
   width: 60px;
   border: 2px solid #ccc;
 }
+
+.rbc-calendar {
+  height: 500px;
+  width: 100%;
+}
+
+.rbc-event:hover {
+  background-color: red;
+  color: red;
+}
+
+.rbc-event {
+  background-color: #5487ff;
+  position: relative;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 15px;
+}
+
+.delete-button {
+  font-size: 15px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%);
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rbc-event:hover .delete-button {
+  display: block;
+
+}
+
+.delete-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}

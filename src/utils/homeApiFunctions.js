@@ -53,10 +53,23 @@ export async function fetchStudents() {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    return data; // Return the fetched data
+    return data;
   } catch (error) {
     console.error('Error:', error);
     throw new Error('Error fetching students');
+  }
+}
+
+export async function fetchStudentName(studentID) {
+  const url = `http://localhost:8080/students/getName/${studentID}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.text();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
   }
 }
 
@@ -129,7 +142,7 @@ export async function deleteStudent(studentId) {
     const response = await fetch(url, options);
     const data = await response.text();
     refreshPage();
-    return data; // Return the response from the server
+    return data;
   } catch (error) {
     console.error('Error:', error);
     throw new Error('Error deleting student');

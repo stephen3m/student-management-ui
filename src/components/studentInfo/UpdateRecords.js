@@ -53,7 +53,7 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
     <div className="container">
       <h1>Change Student Records</h1>
       <h3>Enter the ID of the student and click the button corresponding to what information you would like to change. Enter that information and finally, hit the submit button: </h3>
-      <label htmlFor="studentId">Student ID:</label>
+      <label htmlFor="studentId">Student ID:</label> <br />
       <input type="number" id="studentId" name="studentId" value={studentId} onChange={(e) => setStudentId(e.target.value)} required /><br /><br />
 
       <button type="button" id="changeFnButton" onClick={revealFnDiv}>Change first name</button><br /><br />
