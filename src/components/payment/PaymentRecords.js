@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPayments } from '../../utils/paymentApiFunctions';
+import { fetchStudentName } from '../../utils/homeApiFunctions';
 import './PaymentRecords.css';
 
 function PaymentRecords() {
   const [payments, setPayments] = useState([]);
   const [sortAsc, setSortAsc] = useState(false);
+  const [studentNames, setStudentNames] = useState({});
   const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
     async function fetchData() {
       try {
         const paymentData = await fetchPayments();
-        setPayments(paymentData);
+        const sortedPaymentData = paymentData.sort((a, b) => new Date(a.paymentDate) - new Date(b.paymentDate));
+        setPayments(sortedPaymentData);
       } catch (error) {
         console.error('Error fetching payment records:', error);
       }
@@ -19,6 +22,19 @@ function PaymentRecords() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    async function fetchNames() {
+      const names = {};
+      for (const payment of payments) {
+        const name = await fetchStudentName(payment.studentID);
+        names[payment.studentID] = name;
+      }
+      setStudentNames(names);
+    }
+
+    fetchNames();
+  }, [payments]);
 
   const handleSortByDate = () => {
     const sortedPayments = [...payments].sort((a, b) => {
@@ -30,9 +46,10 @@ function PaymentRecords() {
     setSortAsc(!sortAsc);
   };
 
-  const filteredPayments = payments.filter((payment) =>
-    payment.studentName.toLowerCase().includes(filterText.toLowerCase())
-  );
+  const filteredPayments = payments.filter((payment) => {
+    const studentName = studentNames[payment.studentID] || '';
+    return studentName.toLowerCase().startsWith(filterText.toLowerCase());
+  });
 
   return (
     <div className="payment-records-container">
@@ -58,14 +75,8 @@ function PaymentRecords() {
             <tr key={payment.paymentId}>
               <td>{payment.paymentId}</td>
               <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
-              <td>{payment.studentName}</td>
-              <td>
-                ${payment.paymentDollarAmount}.
-                {payment.paymentCentAmount < 10 ? '0' : ''}
-                {payment.paymentCentAmount}
-              </td>
-              <td>
-              </td>
+              <td>{studentNames[payment.studentID]}</td>
+              <td>${payment.paymentAmount.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>

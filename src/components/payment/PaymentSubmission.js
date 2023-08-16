@@ -6,25 +6,24 @@ import './PaymentSubmission.css';
 
 function PaymentSubmission() {
   const [paymentDate, setPaymentDate] = useState(new Date());
-  const [studentName, setStudentName] = useState('');
-  const [paymentDollarAmount, setPaymentDollarAmount] = useState('');
-  const [paymentCentAmount, setPaymentCentAmount] = useState('');
+  const [studentID, setStudentID] = useState('');
+  const [paymentAmount, setPaymentAmount] = useState('');
 
   const handlePaymentSubmit = async () => {
-    if (!studentName || !paymentDollarAmount || !paymentCentAmount) {
+    if (!studentID || !paymentAmount) {
       alert('Please fill in all fields.');
       return;
     }
 
     const paymentData = {
       paymentDate,
-      studentName,
-      paymentDollarAmount: parseInt(paymentDollarAmount),
-      paymentCentAmount: parseInt(paymentCentAmount),
+      studentID: parseInt(studentID),
+      paymentAmount: parseFloat(paymentAmount),
     };
 
     try {
       await submitPaymentData(paymentData);
+      alert('Payment submitted successfully!');
       window.location.reload();
       clearInputs();
     } catch (error) {
@@ -35,9 +34,8 @@ function PaymentSubmission() {
 
   const clearInputs = () => {
     setPaymentDate(new Date());
-    setStudentName('');
-    setPaymentDollarAmount('');
-    setPaymentCentAmount('');
+    setStudentID('');
+    setPaymentAmount('');
   };
 
   return (
@@ -51,56 +49,23 @@ function PaymentSubmission() {
           className="payment-date-picker"
         />
 
-        <div className="payment-label">Student Name:</div>
+        <div className="payment-label">Student ID:</div>
         <input
-          type="text"
+          type="number"
           className="payment-input-field"
-          value={studentName}
-          onChange={(e) => setStudentName(e.target.value)}
+          value={studentID}
+          onChange={(e) => setStudentID(e.target.value)}
         />
 
         <div className="payment-label">Payment Amount:</div>
-        <div className="payment-amounts">
-          <input
-            type="number"
-            className="payment-input-field"
-            value={paymentDollarAmount}
-            onChange={(e) => setPaymentDollarAmount(e.target.value)}
-            onBlur={() => {
-              let newValue = parseInt(paymentDollarAmount);
-              if (newValue < 0) {
-                newValue = 0;
-              }
-              if (newValue > 1000000) {
-                newValue = 1000000;
-              }
-              setPaymentDollarAmount(newValue);
-            }}
-            min="0"
-            max="1000000"
-            placeholder="Dollars"
-          />
-          <span className="dot">.</span>
-          <input
-            type="number"
-            className="payment-input-field"
-            value={paymentCentAmount}
-            onChange={(e) => setPaymentCentAmount(e.target.value)}
-            onBlur={() => {
-              let newValue = parseInt(paymentCentAmount);
-              if (newValue < 0) {
-                newValue = 0;
-              }
-              if (newValue > 99) {
-                newValue = 99;
-              }
-              setPaymentCentAmount(newValue);
-            }}
-            min="0"
-            max="99"
-            placeholder="Cents"
-          />
-        </div>
+        <input
+          type="number"
+          step="0.01"
+          className="payment-input-field"
+          value={paymentAmount}
+          onChange={(e) => setPaymentAmount(e.target.value)}
+          placeholder="Payment Amount"
+        />
 
         <button type="button" className="payment-submit-button" onClick={handlePaymentSubmit}>
           Submit Payment
