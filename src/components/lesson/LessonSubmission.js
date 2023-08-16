@@ -71,7 +71,19 @@ function LessonSubmission() {
       /><br />
 
       <div className="input-group">
-        <label className="label">Time Interval:</label>
+        <label className="label">Select a Date and Time:</label><br />
+        <DatePicker
+          className="date-picker"
+          selected={selectedDate}
+          onChange={handleDateChange}
+          showTimeSelect
+          timeFormat="hh:mm aa"
+          timeIntervals={timeInterval}
+          dateFormat="MMMM d, yyyy h:mm aa"
+          placeholderText="Select a date and time"
+        /> <hr />
+
+        <label className="small-label">Change time interval when selecting date and time:</label>
         <div className="dropdown">
           <button className="dropbtn">{timeInterval} minutes</button>
           <div className="dropdown-content">
@@ -83,21 +95,7 @@ function LessonSubmission() {
       </div>
 
       <div className="input-group">
-        <label>Select a Date and Time:</label><br />
-        <DatePicker
-          className="date-picker"
-          selected={selectedDate}
-          onChange={handleDateChange}
-          showTimeSelect
-          timeFormat="hh:mm aa"
-          timeIntervals={timeInterval}
-          dateFormat="MMMM d, yyyy h:mm aa"
-          placeholderText="Select a date and time"
-        />
-      </div>
-
-      <div className="input-group">
-        <label>Lesson Duration (0-120 minutes):</label><br />
+        <label className="label">Lesson Duration (0-120 minutes):</label><br />
         <input
           className="lesson-duration-input"
           type="number"

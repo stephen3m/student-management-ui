@@ -4,8 +4,7 @@
 }
 
 .rbc-event:hover {
-  background-color: red;
-  color: red;
+  background-color: #5487ff;
 }
 
 .rbc-event {
@@ -23,6 +22,8 @@
   font-size: 15px;
   display: none;
   position: absolute;
+  padding: 2px 5px;
+  border-radius: 5px;
   top: 50%;
   left: 50%;
   width: 100%;

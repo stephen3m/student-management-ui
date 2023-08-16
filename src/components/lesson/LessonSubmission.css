@@ -40,6 +40,12 @@
   background-color: #ddd;
 }
 
+.small-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 .time-interval-select,
 .lesson-duration-input {
   padding: 10px;

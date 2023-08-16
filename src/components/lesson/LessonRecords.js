@@ -46,8 +46,13 @@ function LessonRecords() {
 
   const localizer = momentLocalizer(moment);
   const [events, setEvents] = useState([]);
+  const [activeView, setActiveView] = useState('day');
 
-  const EventComponent = ({ event }) => {
+  const handleViewChange = (view) => {
+    setActiveView(view);
+  };
+
+const EventComponent = ({ event }) => {
     const handleDelete = async () => {
       const confirmed = window.confirm('Are you sure you want to delete this lesson?');
       if (confirmed) {
@@ -62,8 +67,16 @@ function LessonRecords() {
 
     return (
       <div className="rbc-event">
-        <span>{event.title}</span>
-        <button className="delete-button" onClick={handleDelete}>Delete</button>
+        {activeView === 'week' ? (
+          <span>{event.title}</span>
+        ) : (
+          <>
+            <span>{event.title}</span>
+            <button className="delete-button" onClick={handleDelete}>
+              Delete
+            </button>
+          </>
+        )}
       </div>
     );
   };
@@ -79,6 +92,8 @@ function LessonRecords() {
         components={{
           event: EventComponent,
         }}
+        step={30}
+        onView={handleViewChange} // Handle view change
       />
     </div>
   );

@@ -25,7 +25,9 @@ function Sidebar() {
             <li>
               <Link to="/lesson-scheduling">Lesson Scheduling</Link>
             </li>
-            {/* TODO: Add more navigation links */}
+            <li>
+              <Link to="/payment-tracker">Payment Tracker</Link>
+            </li>
           </>
         )}
       </ul>
