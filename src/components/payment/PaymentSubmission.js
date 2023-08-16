@@ -66,7 +66,18 @@ function PaymentSubmission() {
             className="payment-input-field"
             value={paymentDollarAmount}
             onChange={(e) => setPaymentDollarAmount(e.target.value)}
+            onBlur={() => {
+              let newValue = parseInt(paymentDollarAmount);
+              if (newValue < 0) {
+                newValue = 0;
+              }
+              if (newValue > 1000000) {
+                newValue = 1000000;
+              }
+              setPaymentDollarAmount(newValue);
+            }}
             min="0"
+            max="1000000"
             placeholder="Dollars"
           />
           <span className="dot">.</span>
@@ -75,7 +86,18 @@ function PaymentSubmission() {
             className="payment-input-field"
             value={paymentCentAmount}
             onChange={(e) => setPaymentCentAmount(e.target.value)}
+            onBlur={() => {
+              let newValue = parseInt(paymentCentAmount);
+              if (newValue < 0) {
+                newValue = 0;
+              }
+              if (newValue > 99) {
+                newValue = 99;
+              }
+              setPaymentCentAmount(newValue);
+            }}
             min="0"
+            max="99"
             placeholder="Cents"
           />
         </div>
