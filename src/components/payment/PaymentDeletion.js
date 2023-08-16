@@ -41,6 +41,7 @@ function PaymentDeletion() {
           value={paymentId}
           onChange={(e) => setPaymentId(e.target.value)}
           placeholder="Enter Payment ID"
+          min="0"
         />
         <button className="delete-single-button" onClick={handleDeleteSingle}>
           Delete Single Payment

@@ -6,12 +6,11 @@ function StudentRecords({ fetchStudents, students }) {
   const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
-    // Initialize sortedStudents with students prop when students change
     setSortedStudents(students);
   }, [students]);
 
   const sortTable = () => {
-    const sorted = [...sortedStudents]; // Create a copy to sort without mutating state
+    const sorted = [...sortedStudents];
 
     sorted.sort((a, b) => {
       const nameA = a.lastName.toLowerCase();
@@ -26,7 +25,7 @@ function StudentRecords({ fetchStudents, students }) {
   };
 
   const sortIds = () => {
-    const sorted = [...sortedStudents]; // Create a copy to sort without mutating state
+    const sorted = [...sortedStudents];
     sorted.sort((a, b) => a.id - b.id);
 
     setSortedStudents(sorted);
@@ -41,6 +40,9 @@ function StudentRecords({ fetchStudents, students }) {
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>Instrument</th>
           </tr>
         </thead>
         <tbody>
@@ -49,6 +51,11 @@ function StudentRecords({ fetchStudents, students }) {
               <td className="table-cell">{student.id}</td>
               <td className="table-cell">{student.firstName}</td>
               <td className="table-cell">{student.lastName}</td>
+              <td className="table-cell">{student.age}</td>
+              <td className="table-cell">
+                {student.phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}
+              </td>
+              <td className="table-cell">{student.instrument}</td>
             </tr>
           ))}
         </tbody>

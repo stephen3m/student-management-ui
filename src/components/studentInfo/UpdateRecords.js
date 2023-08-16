@@ -1,21 +1,57 @@
 import React, { useState } from 'react';
 import './UpdateRecords.css';
 
-function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) {
+function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onUpdateAge, onUpdatePhoneNumber, onUpdateInstrument, onDeleteStudent, onClearData }) {
   const [studentId, setStudentId] = useState('');
   const [updatedFirstName, setUpdatedFirstName] = useState('');
   const [updatedLastName, setUpdatedLastName] = useState('');
+  const [updatedAge, setUpdatedAge] = useState(0);
+  const [updatedPhoneNumber, setUpdatedPhoneNumber] = useState('');
+  const [updatedInstrument, setUpdatedInstrument] = useState('');
   const [showFnDiv, setShowFnDiv] = useState(false);
   const [showLnDiv, setShowLnDiv] = useState(false);
+  const [showAgeDiv, setShowAgeDiv] = useState(false);
+  const [showPhoneNumberDiv, setShowPhoneNumberDiv] = useState(false);
+  const [showInstrumentDiv, setShowInstrumentDiv] = useState(false);
 
   const revealFnDiv = () => {
     setShowFnDiv(true);
     setShowLnDiv(false);
+    setShowAgeDiv(false);
+    setShowPhoneNumberDiv(false);
+    setShowInstrumentDiv(false);
   };
 
   const revealLnDiv = () => {
     setShowLnDiv(true);
     setShowFnDiv(false);
+    setShowAgeDiv(false);
+    setShowPhoneNumberDiv(false);
+    setShowInstrumentDiv(false);
+  };
+
+  const revealAgeDiv = () => {
+    setShowAgeDiv(true);
+    setShowFnDiv(false);
+    setShowLnDiv(false);
+    setShowPhoneNumberDiv(false);
+    setShowInstrumentDiv(false);
+  };
+
+  const revealPhoneNumberDiv = () => {
+    setShowPhoneNumberDiv(true);
+    setShowFnDiv(false);
+    setShowLnDiv(false);
+    setShowAgeDiv(false);
+    setShowInstrumentDiv(false);
+  };
+
+  const revealInstrumentDiv = () => {
+    setShowInstrumentDiv(true);
+    setShowFnDiv(false);
+    setShowLnDiv(false);
+    setShowAgeDiv(false);
+    setShowPhoneNumberDiv(false);
   };
 
   const handleUpdateFirstName = async () => {
@@ -25,7 +61,7 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
       setUpdatedFirstName('');
     } catch (error) {
       console.error('Error updating first name:', error);
-      alert('Error updating first name.'); // Show an alert message
+      alert('Error updating first name.');
     }
   };
 
@@ -36,7 +72,41 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
       setUpdatedLastName('');
     } catch (error) {
       console.error('Error updating last name:', error);
-      alert('Error updating last name.'); // Show an alert message
+      alert('Error updating last name.');
+    }
+  };
+
+  const handleUpdateAge = async () => {
+    try {
+      await onUpdateAge(studentId, updatedAge);
+      setStudentId('');
+      setUpdatedAge(0);
+    } catch (error) {
+      console.error('Error updating age:', error);
+      alert('Error updating age.');
+    }
+  };
+
+  const handleUpdatePhoneNumber = async () => {
+    try {
+      const formattedPhoneNumber = updatedPhoneNumber.replace(/-/g, '');
+      await onUpdatePhoneNumber(studentId, formattedPhoneNumber);
+      setStudentId('');
+      setUpdatedPhoneNumber('');
+    } catch (error) {
+      console.error('Error updating phone number:', error);
+      alert('Error updating phone number.');
+    }
+  };
+
+  const handleUpdateInstrument = async () => {
+    try {
+      await onUpdateInstrument(studentId, updatedInstrument);
+      setStudentId('');
+      setUpdatedInstrument('');
+    } catch (error) {
+      console.error('Error updating instrument:', error);
+      alert('Error updating instrument.');
     }
   };
 
@@ -45,7 +115,19 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
       await onDeleteStudent(studentId);
     } catch (error) {
       console.error('Error deleting student:', error);
-      alert('Error deleting student.'); // Show an alert message
+      alert('Error deleting student.');
+    }
+  };
+
+  const handleClearData = async () => {
+    const confirmDelete = window.confirm('Are you sure you want to delete all student records? This action cannot be undone.');
+    if (confirmDelete) {
+      try {
+        await onClearData();
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error clearing student data.');
+      }
     }
   };
 
@@ -58,7 +140,13 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
 
       <button type="button" id="changeFnButton" onClick={revealFnDiv}>Change first name</button><br /><br />
       <button type="button" id="changeLnButton" onClick={revealLnDiv}>Change last name</button><br /><br />
+      <button type="button" id="changeAgeButton" onClick={revealAgeDiv}>Change age</button><br /><br />
+      <button type="button" id="changePhoneNumberButton" onClick={revealPhoneNumberDiv}>Change phone number</button><br /><br />
+      <button type="button" id="changeInstrumentButton" onClick={revealInstrumentDiv}>Change instrument</button><br /><br />
       <button type="button" id="deleteStudentButton" onClick={handleDeleteStudent}>Delete Student</button><br /><br />
+      <button type="button" id="clearButton" onClick={handleClearData}>
+        Delete all students
+      </button><br /><br />
 
       {showFnDiv && (
         <div id="fnDiv">
@@ -72,7 +160,7 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
             onChange={(e) => setUpdatedFirstName(e.target.value)}
             required
           /><br /><br />
-          <button type="button" id="submitFnButton" onClick={handleUpdateFirstName}>Submit</button>
+          <button type="button" className="updateSubmitButton" onClick={handleUpdateFirstName}>Submit</button>
         </div>
       )}
 
@@ -88,7 +176,60 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onDeleteStudent}) 
             onChange={(e) => setUpdatedLastName(e.target.value)}
             required
           /><br /><br />
-          <button type="button" id="submitLnButton" onClick={handleUpdateLastName}>Submit</button>
+          <button type="button" className="updateSubmitButton" onClick={handleUpdateLastName}>Submit</button>
+        </div>
+      )}
+
+      {showAgeDiv && (
+        <div id="ageDiv">
+          <h3>Enter Updated Information</h3>
+          <label htmlFor="updateStudentAge">New age:</label>
+          <input
+            type="number"
+            id="updateStudentAge"
+            name="updateStudentAge"
+            value={updatedAge}
+            onChange={(e) => setUpdatedAge(e.target.value)}
+            required
+            min={0}
+          /><br /><br />
+          <button type="button" className="updateSubmitButton" onClick={handleUpdateAge}>Submit</button>
+        </div>
+      )}
+
+      {showPhoneNumberDiv && (
+        <div id="phoneNumberDiv">
+          <h3>Enter Updated Information</h3>
+          <label htmlFor="updateStudentPhoneNumber">New phone number:</label>
+          <input
+            type="text"
+            id="updateStudentPhoneNumber"
+            name="updateStudentPhoneNumber"
+            value={updatedPhoneNumber}
+            onChange={(e) => setUpdatedPhoneNumber(e.target.value)}
+            required
+          /><br /><br />
+          <button type="button" className="updateSubmitButton" onClick={handleUpdatePhoneNumber}>Submit</button>
+        </div>
+      )}
+
+      {showInstrumentDiv && (
+        <div id="instrumentDiv">
+          <h3>Enter Updated Information</h3>
+          <label htmlFor="updateStudentInstrument">New instrument:</label>
+          <select
+            id="updateStudentInstrument"
+            name="updateStudentInstrument"
+            value={updatedInstrument}
+            onChange={(e) => setUpdatedInstrument(e.target.value)}
+            required
+          >
+            <option value="">Select an instrument</option>
+            <option value="Violin">Violin</option>
+            <option value="Viola">Viola</option>
+            <option value="Piano">Piano</option>
+          </select><br /><br />
+          <button type="button" className="updateSubmitButton" onClick={handleUpdateInstrument}>Submit</button>
         </div>
       )}
     </div>

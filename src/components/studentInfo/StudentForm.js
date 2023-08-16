@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
 import './StudentForm.css';
 
-function StudentForm({ onSubmit, onClearData }) {
+function StudentForm({ onSubmit }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState(1);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [instrument, setInstrument] = useState('');
 
   const handleSubmit = async () => {
     const studentData = {
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      age: age,
+      phoneNumber: phoneNumber.replace(/-/g, ''),
+      instrument: instrument
     };
 
     try {
       await onSubmit(studentData);
-      // Reset the form inputs
       setFirstName('');
       setLastName('');
+      setAge(1);
+      setPhoneNumber('');
+      setInstrument('');
     } catch (error) {
       console.error('Error:', error);
-    }
-  };
-
-  const handleClearData = async () => {
-    try {
-      await onClearData();
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error clearing student data.'); // Show an alert message
     }
   };
 
@@ -54,14 +53,43 @@ function StudentForm({ onSubmit, onClearData }) {
           onChange={(e) => setLastName(e.target.value)}
         /><br /><br />
 
+        <label htmlFor="age">Age:</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          required
+          min={1}
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        /><br /><br />
+
+        <label htmlFor="phoneNumber">Phone Number (Format: 123-456-7890 or 1234567890):</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        /><br /><br />
+
+        <label htmlFor="instrument">Instrument:</label>
+        <select
+          id="instrument"
+          name="instrument"
+          value={instrument}
+          onChange={(e) => setInstrument(e.target.value)}
+        >
+          <option value="">Select Instrument</option>
+          <option value="Violin">Violin</option>
+          <option value="Viola">Viola</option>
+          <option value="Piano">Piano</option>
+        </select><br /><br />
+
         <button type="button" id="submitButton" onClick={handleSubmit}>
           Submit
         </button>
       </form>
-
-      <button type="button" id="clearButton" onClick={handleClearData}>
-        Delete all students
-      </button><br /><br />
     </div>
   );
 }

@@ -55,6 +55,7 @@ function PaymentSubmission() {
           className="payment-input-field"
           value={studentID}
           onChange={(e) => setStudentID(e.target.value)}
+          min="0"
         />
 
         <div className="payment-label">Payment Amount:</div>
@@ -64,6 +65,7 @@ function PaymentSubmission() {
           className="payment-input-field"
           value={paymentAmount}
           onChange={(e) => setPaymentAmount(e.target.value)}
+          min="0"
           placeholder="Payment Amount"
         />
 

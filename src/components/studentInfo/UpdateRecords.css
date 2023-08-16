@@ -32,7 +32,46 @@ input {
     background-color: #734dbd;
 }
 
-#submitFnButton {
+#changeAgeButton {
+    background-color: #66cc99;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#changeAgeButton:hover {
+    background-color: #4fa874;
+}
+
+#changePhoneNumberButton {
+    background-color: #6699cc;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#changePhoneNumberButton:hover {
+    background-color: #4d7eaa;
+}
+
+#changeInstrumentButton {
+    background-color: #cc99cc;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#changeInstrumentButton:hover {
+    background-color: #a674a6;
+}
+
+.updateSubmitButton {
     background-color: #007bff;
     color: #fff;
     padding: 8px 16px;
@@ -41,20 +80,7 @@ input {
     cursor: pointer;
 }
 
-#submitFnButton:hover {
-    background-color: #0056b3;
-}
-
-#submitLnButton {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#submitLnButton:hover {
+.updateSubmitButton:hover {
     background-color: #0056b3;
 }
 
@@ -71,3 +97,15 @@ input {
     background-color: #39b392;
 }
 
+#clearButton {
+    background-color: #fa7564;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#clearButton:hover {
+    background-color: #c74228;
+}

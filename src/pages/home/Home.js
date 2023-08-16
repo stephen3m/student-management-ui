@@ -9,6 +9,9 @@ import {
   fetchStudents,
   updateStudentFirstName,
   updateStudentLastName,
+  updateStudentAge,
+  updateStudentPhoneNumber,
+  updateStudentInstrument,
   deleteStudent
 } from '../../utils/homeApiFunctions';
 
@@ -30,12 +33,16 @@ function Home() {
 
   return (
     <div className="container">
-      <StudentForm onSubmit={submitStudentData} onClearData={clearStudentData} />
+      <StudentForm onSubmit={submitStudentData} />
       <StudentRecords fetchData={fetchStudents} students={students} />
       <UpdateRecords
         onUpdateFirstName={updateStudentFirstName}
         onUpdateLastName={updateStudentLastName}
+        onUpdateAge={updateStudentAge}
+        onUpdatePhoneNumber={updateStudentPhoneNumber}
+        onUpdateInstrument={updateStudentInstrument}
         onDeleteStudent={deleteStudent}
+        onClearData={clearStudentData}
       />
     </div>
   );
