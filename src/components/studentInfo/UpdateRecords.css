@@ -71,6 +71,10 @@ input {
     background-color: #a674a6;
 }
 
+#studentIdLabel, #fieldLabel {
+  font-weight: bold;
+}
+
 .updateSubmitButton {
     background-color: #007bff;
     color: #fff;

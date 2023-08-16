@@ -8,50 +8,21 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onUpdateAge, onUpd
   const [updatedAge, setUpdatedAge] = useState(0);
   const [updatedPhoneNumber, setUpdatedPhoneNumber] = useState('');
   const [updatedInstrument, setUpdatedInstrument] = useState('');
+  const [selectedField, setSelectedField] = useState('');
   const [showFnDiv, setShowFnDiv] = useState(false);
   const [showLnDiv, setShowLnDiv] = useState(false);
   const [showAgeDiv, setShowAgeDiv] = useState(false);
   const [showPhoneNumberDiv, setShowPhoneNumberDiv] = useState(false);
   const [showInstrumentDiv, setShowInstrumentDiv] = useState(false);
 
-  const revealFnDiv = () => {
-    setShowFnDiv(true);
-    setShowLnDiv(false);
-    setShowAgeDiv(false);
-    setShowPhoneNumberDiv(false);
-    setShowInstrumentDiv(false);
-  };
-
-  const revealLnDiv = () => {
-    setShowLnDiv(true);
-    setShowFnDiv(false);
-    setShowAgeDiv(false);
-    setShowPhoneNumberDiv(false);
-    setShowInstrumentDiv(false);
-  };
-
-  const revealAgeDiv = () => {
-    setShowAgeDiv(true);
-    setShowFnDiv(false);
-    setShowLnDiv(false);
-    setShowPhoneNumberDiv(false);
-    setShowInstrumentDiv(false);
-  };
-
-  const revealPhoneNumberDiv = () => {
-    setShowPhoneNumberDiv(true);
-    setShowFnDiv(false);
-    setShowLnDiv(false);
-    setShowAgeDiv(false);
-    setShowInstrumentDiv(false);
-  };
-
-  const revealInstrumentDiv = () => {
-    setShowInstrumentDiv(true);
-    setShowFnDiv(false);
-    setShowLnDiv(false);
-    setShowAgeDiv(false);
-    setShowPhoneNumberDiv(false);
+  const handleFieldSelect = (e) => {
+    const field = e.target.value;
+    setSelectedField(field);
+    setShowFnDiv(field === 'firstName');
+    setShowLnDiv(field === 'lastName');
+    setShowAgeDiv(field === 'age');
+    setShowPhoneNumberDiv(field === 'phoneNumber');
+    setShowInstrumentDiv(field === 'instrument');
   };
 
   const handleUpdateFirstName = async () => {
@@ -134,19 +105,19 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onUpdateAge, onUpd
   return (
     <div className="container">
       <h1>Change Student Records</h1>
-      <h3>Enter the ID of the student and click the button corresponding to what information you would like to change. Enter that information and finally, hit the submit button: </h3>
-      <label htmlFor="studentId">Student ID:</label> <br />
+      <h3>Enter the ID of the student and select a field to change. Enter the updated information and finally, hit the submit button:</h3>
+      <label id="studentIdLabel" htmlFor="studentId">Student ID:</label> <br />
       <input type="number" id="studentId" name="studentId" value={studentId} onChange={(e) => setStudentId(e.target.value)} required /><br /><br />
 
-      <button type="button" id="changeFnButton" onClick={revealFnDiv}>Change first name</button><br /><br />
-      <button type="button" id="changeLnButton" onClick={revealLnDiv}>Change last name</button><br /><br />
-      <button type="button" id="changeAgeButton" onClick={revealAgeDiv}>Change age</button><br /><br />
-      <button type="button" id="changePhoneNumberButton" onClick={revealPhoneNumberDiv}>Change phone number</button><br /><br />
-      <button type="button" id="changeInstrumentButton" onClick={revealInstrumentDiv}>Change instrument</button><br /><br />
-      <button type="button" id="deleteStudentButton" onClick={handleDeleteStudent}>Delete Student</button><br /><br />
-      <button type="button" id="clearButton" onClick={handleClearData}>
-        Delete all students
-      </button><br /><br />
+      <label id="fieldLabel" htmlFor="selectField">Select a field to change:</label> <br />
+      <select id="selectField" name="selectField" value={selectedField} onChange={handleFieldSelect}>
+        <option value="">Select a field</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="age">Age</option>
+        <option value="phoneNumber">Phone Number</option>
+        <option value="instrument">Instrument</option>
+      </select><br /><br />
 
       {showFnDiv && (
         <div id="fnDiv">
@@ -232,6 +203,13 @@ function UpdateRecords({ onUpdateFirstName, onUpdateLastName, onUpdateAge, onUpd
           <button type="button" className="updateSubmitButton" onClick={handleUpdateInstrument}>Submit</button>
         </div>
       )}
+
+      <hr />
+      <h3>Delete Buttons:</h3>
+      <button type="button" id="deleteStudentButton" onClick={handleDeleteStudent}>Delete Student</button><br /><br />
+      <button type="button" id="clearButton" onClick={handleClearData}>
+        Delete all students
+      </button><br /><br />
     </div>
   );
 }
