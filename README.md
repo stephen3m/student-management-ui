@@ -63,8 +63,8 @@ The Student Management System frontend provides the following main features:
 ## Project Structure
 The project directory is organized as follows:
 * /src: Contains the source code of the frontend application
-  * /components:
-  * /pages:
-  * /testing:
-  * /utils: 
+  * /components: Includes reusable React components that are used throughout the application
+  * /pages: Houses the main pages of the application
+  * /testing: Holds configuration and setup files for testing the application
+  * /utils: Contains utility functions and API-related files
 * /public: Contains public assets and the HTML entry point
