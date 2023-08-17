@@ -88,8 +88,12 @@ input {
     background-color: #0056b3;
 }
 
+#deleteStudentId {
+  width: 200px;
+}
+
 #deleteStudentButton {
-    background-color: #4fe8bf;
+    background-color: #112469;
     color: #fff;
     padding: 8px 16px;
     border: none;
@@ -98,11 +102,11 @@ input {
 }
 
 #deleteStudentButton:hover {
-    background-color: #39b392;
+    background-color: #516ac4;
 }
 
 #clearButton {
-    background-color: #fa7564;
+    background-color: #a31c35;
     color: #fff;
     padding: 8px 16px;
     border: none;
@@ -111,5 +115,15 @@ input {
 }
 
 #clearButton:hover {
-    background-color: #c74228;
+    background-color: #c23852;
+}
+
+#update-student-records-div {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+#delete-student-records-div {
+  padding-left: 15px;
+  padding-top: 10px;
 }

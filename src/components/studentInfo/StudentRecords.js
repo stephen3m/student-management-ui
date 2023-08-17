@@ -4,37 +4,54 @@ import './StudentRecords.css';
 function StudentRecords({ fetchStudents, students }) {
   const [sortedStudents, setSortedStudents] = useState([]);
   const [sortOrder, setSortOrder] = useState('asc');
+  const [selectedSortOption, setSelectedSortOption] = useState('');
 
   useEffect(() => {
     setSortedStudents(students);
   }, [students]);
 
+  useEffect(() => {
+    if (selectedSortOption) {
+      sortTable();
+    }
+  }, [selectedSortOption]);
+
   const sortTable = () => {
     const sorted = [...sortedStudents];
 
     sorted.sort((a, b) => {
-      const nameA = a.lastName.toLowerCase();
-      const nameB = b.lastName.toLowerCase();
-      return nameA.localeCompare(nameB);
+      if (selectedSortOption === 'lastName') {
+        const nameA = a.lastName.toLowerCase();
+        const nameB = b.lastName.toLowerCase();
+        return nameA.localeCompare(nameB);
+      } else if (selectedSortOption === 'id') {
+        return a.id - b.id;
+      }
     });
-
-    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    setSortOrder(newSortOrder);
-
-    setSortedStudents(sorted);
-  };
-
-  const sortIds = () => {
-    const sorted = [...sortedStudents];
-    sorted.sort((a, b) => a.id - b.id);
 
     setSortedStudents(sorted);
   };
 
   return (
-    <div className="container">
-      <h1>Student Records</h1>
-      <table id="studentTable">
+    <div className="container mt-5">
+      <h1 className="text-center mb-4">Student Records</h1>
+
+      {/* Dropdown Menu */}
+      <div className="mb-3">
+        <label htmlFor="sortDropdown" className="form-label">Sort by:</label>
+        <select
+          id="sortDropdown"
+          className="form-select"
+          value={selectedSortOption}
+          onChange={(e) => setSelectedSortOption(e.target.value)}
+        >
+          <option value="" disabled>Select an option</option>
+          <option value="lastName">Last Name</option>
+          <option value="id">ID</option>
+        </select>
+      </div>
+
+      <table className="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -48,33 +65,18 @@ function StudentRecords({ fetchStudents, students }) {
         <tbody>
           {sortedStudents.map(student => (
             <tr key={student.id}>
-              <td className="table-cell">{student.id}</td>
-              <td className="table-cell">{student.firstName}</td>
-              <td className="table-cell">{student.lastName}</td>
-              <td className="table-cell">{student.age}</td>
-              <td className="table-cell">
+              <td>{student.id}</td>
+              <td>{student.firstName}</td>
+              <td>{student.lastName}</td>
+              <td>{student.age}</td>
+              <td>
                 {student.phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}
               </td>
-              <td className="table-cell">{student.instrument}</td>
+              <td>{student.instrument}</td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      <br />
-
-      <button type="button" id="refreshButton" onClick={fetchStudents}>
-        Refresh Student Data
-      </button>
-      <br /><br />
-      <button type="button" id="sortButton" onClick={sortTable}>
-        Sort by alphabetical order (last name)
-      </button>
-      <br /><br />
-      <button type="button" id="sortIdButton" onClick={sortIds}>
-        Sort by IDs (least to greatest)
-      </button>
-      <br /><br />
     </div>
   );
 }
