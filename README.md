@@ -31,7 +31,7 @@ Follow these steps to set up and run the frontend of the Student Management Syst
 2. Navigate to the project directory:
 
    ```
-   cd student-management-frontend
+   cd student-management-ui
    ```
    
 4. Install the required dependencies:
