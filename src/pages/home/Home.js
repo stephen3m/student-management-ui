@@ -32,7 +32,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="home-container">
       <StudentForm onSubmit={submitStudentData} />
       <StudentRecords fetchData={fetchStudents} students={students} />
       <UpdateRecords

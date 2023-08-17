@@ -1,30 +1,81 @@
+.icon-menu {
+  font-size: 30px;
+  color: white;
+}
+
+.icon-home,
+.icon-dollar {
+  margin-left: 13px;
+  margin-right: 13px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 20px;
+  color: white;
+}
+
+.icon-calendar {
+  margin-left: 15px;
+  margin-right: 13px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 21px;
+  color: white;
+}
+
+.icon-nav-link {
+  background-color: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s, border-radius 0.3s;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.icon-nav-link:hover {
+  background-color: #3e5b9e;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
 .sidebar {
   width: 0px;
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #8a6a29;
-  transition: 0.3s;
   padding-top: 60px;
   position: fixed;
+  background-color: #f7f7f7;
+  transition: 0.2s;
 }
 
-.sidebar.open {
+.sidebar.closed {
+  width: 100px;
+  background-color: #192c57;
+}
+
+.sidebar.opened {
   width: 190px;
-  border-right: 2px solid black;
+  border-right: 4px solid white;
+  background-color: #192c57;
+}
+
+.nav-link {
+  background-color: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s, border-radius 0.3s;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.nav-link:hover {
+  background-color: #3e5b9e;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  font-weight: bold;
 }
 
 .toggle-btn {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-}
-
-.toggle-checkbox {
-  display: none;
-}
-
-.toggle-label {
   position: absolute;
   top: 20px;
   left: 10px;
@@ -33,30 +84,12 @@
   color: white;
   font-size: 24px;
   cursor: pointer;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
 }
 
 li {
   margin: 10px;
 }
 
-a {
-  text-decoration: none;
+#home-span, #ls-span, #pt-span {
   color: white;
 }
-
-.toggle-btn {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
