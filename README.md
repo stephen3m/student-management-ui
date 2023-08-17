@@ -25,7 +25,7 @@ Follow these steps to set up and run the frontend of the Student Management Syst
 1. Clone this repository to your local machine:
 
    ```
-   git clone https://github.com/your-username/student-management-frontend.git
+   git clone git@github.com:stephen3m/student-management-ui.git
    ```
 
 2. Navigate to the project directory:
