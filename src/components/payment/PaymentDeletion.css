@@ -12,8 +12,10 @@
   font-size: 24px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 60%;
-  background-color: white;
+  width: 100%;
+  background-color: #e8fffd;
+  color: black;
+  border: 2px solid #1b1e7a;
   text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -21,7 +23,6 @@
 }
 
 .payment-id-input {
-  width: 60%;
   padding: 8px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -87,7 +88,7 @@
   background-color: white;
   padding-left: 135px;
   padding-right: 135px;
-  width: 500px;
+  width: 700px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;

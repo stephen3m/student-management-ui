@@ -33,21 +33,19 @@ function Home() {
 
   return (
     <div className="home-container">
-      <div className="grid-container">
-        <div className="student-form-container">
-          <StudentForm onSubmit={submitStudentData} />
-        </div>
-        <div className="update-records-container">
-          <UpdateRecords
-            onUpdateFirstName={updateStudentFirstName}
-            onUpdateLastName={updateStudentLastName}
-            onUpdateAge={updateStudentAge}
-            onUpdatePhoneNumber={updateStudentPhoneNumber}
-            onUpdateInstrument={updateStudentInstrument}
-            onDeleteStudent={deleteStudent}
-            onClearData={clearStudentData}
-          />
-        </div>
+      <div className="student-form-container">
+        <StudentForm onSubmit={submitStudentData} />
+     </div>
+      <div className="update-records-container">
+        <UpdateRecords
+          onUpdateFirstName={updateStudentFirstName}
+          onUpdateLastName={updateStudentLastName}
+          onUpdateAge={updateStudentAge}
+          onUpdatePhoneNumber={updateStudentPhoneNumber}
+          onUpdateInstrument={updateStudentInstrument}
+          onDeleteStudent={deleteStudent}
+          onClearData={clearStudentData}
+        />
       </div>
       <div className="student-records-container">
         <StudentRecords fetchData={fetchStudents} students={students} />

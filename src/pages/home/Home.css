@@ -19,18 +19,6 @@
   background-color: #fafafa;
 }
 
-.student-form-container {
-  max-width: 800px;
-  height: 800px;
-}
-
-.update-records-container {
-  margin-bottom: 15px;
-  width: 750px;
-}
-
 .student-records-container {
-  max-width: 100%;
-  margin-top: 20px;
   padding-top: 20px;
 }

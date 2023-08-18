@@ -12,8 +12,10 @@
   font-size: 24px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 60%;
-  background-color: white;
+  width: 100%;
+  background-color: #e8fffd;
+  color: black;
+  border: 2px solid #1b1e7a;
   text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
