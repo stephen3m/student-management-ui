@@ -9,6 +9,7 @@ This repository contains the frontend code for an interactive web application I 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [Architecture Diagram](#architecture-diagram)
 - [Project Structure](#project-structure)
 
 ## Project Overview
@@ -42,19 +43,21 @@ Follow these steps to set up and run the frontend of the Student Management Syst
    cd student-management-ui
    ```
    
-4. Install the required dependencies:
+3. Install the required dependencies:
 
    ```
    npm install
    ```
    
-6. Start the development server:
+4. Start the development server:
 
    ```
    npm start
    ```
    
-8. Open your web browser and visit http://localhost:3000 to access the application.
+5. Open your web browser and visit http://localhost:3000 to access the application.
+
+For setting up the backend part of this project, refer to https://github.com/stephen3m/student-management-service for instructions.
 
 ## Usage
 The Student Management System frontend provides the following main features:
@@ -67,6 +70,9 @@ The Student Management System frontend provides the following main features:
 ## Technologies Used
 * React JS: A JavaScript library for building user interfaces
 * CSS: Styling and layout enhancements
+
+## Architecture Diagram
+![UML class](https://github.com/stephen3m/student-management-ui/assets/96703864/6cf3b621-973d-4858-8033-2e57f80dc497)
 
 ## Project Structure
 The project directory is organized as follows:
