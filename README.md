@@ -22,6 +22,8 @@ The Student Management System frontend provides a user-friendly interface for ma
 ![HomePage](https://github.com/stephen3m/student-management-ui/assets/96703864/5c352ebe-650b-42ea-9f32-d12b2e04f33a)
 
 ### Lesson Scheduling Page:
+![LessonSchedulingPage (1)](https://github.com/stephen3m/student-management-ui/assets/96703864/635af162-24a9-4c11-b7c5-143746741c2e)
+
 
 ### Payment Tracker Page:
 
