@@ -62,10 +62,9 @@ For setting up the backend part of this project, refer to https://github.com/ste
 ## Usage
 The Student Management System frontend provides the following main features:
 
-* View and manage student records
-* Update student information, including first name, last name, age, phone number, and instrument
-* Schedule lessons and manage lesson details
-* Track payment information and payment history
+* View and manage student records 
+* Schedule lessons, view and delete lessons on calendar display - includes daily, week, month, and agenda view
+* Add payment entries and track payment history
 
 ## Technologies Used
 * React JS: A JavaScript library for building user interfaces
