@@ -65,7 +65,7 @@ The Student Management System frontend provides the following main features:
 * Track payment information and payment history
 
 ## Technologies Used
-* React.js: A JavaScript library for building user interfaces
+* React JS: A JavaScript library for building user interfaces
 * CSS: Styling and layout enhancements
 
 ## Project Structure
