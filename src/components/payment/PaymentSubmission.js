@@ -40,13 +40,14 @@ function PaymentSubmission() {
 
   return (
     <div className="payment-container">
-      <h1 className="payment-submit-header">Submit Payment</h1>
+      <h1 id="payment-submit-header" style={{fontFamily: "Futura"}}>Submit Payment</h1>
       <form className="payment-form">
         <div className="payment-label">Payment Date:</div>
         <DatePicker
           selected={paymentDate}
           onChange={(date) => setPaymentDate(date)}
           className="payment-date-picker"
+          popperPlacement="right-start"
         />
 
         <div className="payment-label">Student ID:</div>
@@ -56,6 +57,7 @@ function PaymentSubmission() {
           value={studentID}
           onChange={(e) => setStudentID(e.target.value)}
           min="0"
+          placeholder="Student ID"
         />
 
         <div className="payment-label">Payment Amount:</div>

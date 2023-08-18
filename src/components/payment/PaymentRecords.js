@@ -53,7 +53,7 @@ function PaymentRecords() {
 
   return (
     <div className="payment-records-container">
-      <h2 className="payment-records-header">Payment Records</h2>
+      <h2 id="payment-records-header" style={{fontFamily:"Futura"}}>Payment Records</h2>
       <input
         type="text"
         className="filter-input"

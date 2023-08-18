@@ -33,24 +33,27 @@ function PaymentDeletion() {
 
   return (
     <div className="payment-deletion-container">
-      <h1 className="payment-submit-header">Payment Deletion</h1>
-      <div className="single-deletion">
-        <input
-          type="number"
-          className="payment-id-input"
-          value={paymentId}
-          onChange={(e) => setPaymentId(e.target.value)}
-          placeholder="Enter Payment ID"
-          min="0"
-        />
-        <button className="delete-single-button" onClick={handleDeleteSingle}>
-          Delete Single Payment
+      <h1 id="payment-submit-header" style={{fontFamily:"Futura"}}>Delete Payment(s)</h1>
+      <div id="delete-buttons-div" className="text-center">
+        <div className="single-deletion">
+          <div className="payment-label">Enter Payment ID:</div>
+          <input
+            type="number"
+            className="payment-id-input"
+            value={paymentId}
+            onChange={(e) => setPaymentId(e.target.value)}
+            placeholder="Payment ID"
+            min="0"
+          />
+          <button className="delete-single-button" onClick={handleDeleteSingle}>
+            Delete Single Payment
+          </button>
+        </div>
+        <hr />
+        <button className="delete-all-button" onClick={handleDeleteAll}>
+          Delete All Payment Entries
         </button>
       </div>
-      <span> OR </span><br />
-      <button className="delete-all-button" onClick={handleDeleteAll}>
-        Delete All Payment Entries
-      </button>
     </div>
   );
 }

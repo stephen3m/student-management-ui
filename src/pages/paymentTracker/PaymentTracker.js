@@ -10,8 +10,8 @@ function PaymentTracker() {
     <div className="payment-tracker">
       <StudentRecordsButton />
       <PaymentSubmission />
-      <PaymentRecords />
       <PaymentDeletion />
+      <PaymentRecords />
     </div>
   );
 }

@@ -8,17 +8,16 @@
   background-color: white;
 }
 
-.payment-submit-header {
+#payment-submit-header {
   font-size: 24px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 80%;
+  width: 60%;
   background-color: white;
   text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #edd995;
 }
 
 .payment-id-input {
@@ -31,9 +30,8 @@
   width: 155px;
 }
 
-.delete-single-button,
-.delete-all-button {
-  background-color: #007bff;
+.delete-single-button {
+  background-color: #2d3d8a;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -43,9 +41,23 @@
   cursor: pointer;
 }
 
-.delete-single-button:hover,
+.delete-single-button:hover {
+  background-color: #5768bd;
+}
+
+.delete-all-button {
+  background-color: #69173c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .delete-all-button:hover {
-  background-color: #0056b3;
+  background-color: #9e3464;
 }
 
 .single-deletion,
@@ -63,12 +75,21 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid #2d3d8a;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: white;
   align-items: center;
   justify-content: center;
-  background-color: #dbc374;
-  border: 4px solid #a68929;
+}
+
+#delete-buttons-div {
+  background-color: white;
+  padding-left: 135px;
+  padding-right: 135px;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

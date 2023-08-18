@@ -1,5 +1,5 @@
 .payment-form {
-  width: 500px;
+  width: 800px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -8,7 +8,7 @@
   background-color: white;
 }
 
-.payment-submit-header {
+#payment-submit-header {
   font-size: 24px;
   margin-bottom: 20px;
   padding: 10px;
@@ -54,7 +54,7 @@
 }
 
 .payment-submit-button {
-  background-color: #007bff;
+  background-color: #2d3d8a;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -64,15 +64,15 @@
 }
 
 .payment-submit-button:hover {
-  background-color: #0056b3;
+  background-color: #5768bd;
 }
 
 .payment-container {
   display: flex;
   flex-direction: column;
   height: 450px;
-  background-color: #dbc374;
-  border: 4px solid #a68929;
+  border: 2px solid #191657;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
