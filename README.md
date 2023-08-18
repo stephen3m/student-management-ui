@@ -26,6 +26,7 @@ The Student Management System frontend provides a user-friendly interface for ma
 
 
 ### Payment Tracker Page:
+![PaymentTrackerPage (1)](https://github.com/stephen3m/student-management-ui/assets/96703864/fbabd04a-67f0-48e6-b00b-1a0553c1304a)
 
 
 ## Installation
