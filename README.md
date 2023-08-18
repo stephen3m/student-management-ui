@@ -18,12 +18,12 @@ The Student Management System frontend provides a user-friendly interface for ma
 
 ## Project Screenshots
 
-### Student Records Page
+### Student Records Page:
 ![HomePage](https://github.com/stephen3m/student-management-ui/assets/96703864/5c352ebe-650b-42ea-9f32-d12b2e04f33a)
 
-### Lesson Scheduling Page
+### Lesson Scheduling Page:
 
-### Payment Tracker Page
+### Payment Tracker Page:
 
 
 ## Installation
