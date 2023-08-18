@@ -33,8 +33,8 @@ function StudentRecords({ fetchStudents, students }) {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Student Records</h1>
+    <div className="container">
+      <h1 style={{ fontFamily: 'Futura' }} className="text-center">Student Records</h1>
 
       {/* Dropdown Menu */}
       <div className="mb-3">

@@ -1,5 +1,36 @@
 .home-container {
-  background-color: #f7f7f7;
-  margin-left: 10px;
-  width: 1500px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+.student-form-container,
+.update-records-container,
+.student-records-container {
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+}
+
+.student-form-container {
+  max-width: 800px;
+  height: 800px;
+}
+
+.update-records-container {
+  margin-bottom: 15px;
+  width: 750px;
+}
+
+.student-records-container {
+  max-width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
 }

@@ -1,5 +1,5 @@
 #student-record-button {
-  background-color: #9e7c39;
+  background-color: #1a2a78;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -10,5 +10,5 @@
 }
 
 #student-record-button:hover {
-  background-color: #c2a959;
+  background-color: #3a4dab;
 }

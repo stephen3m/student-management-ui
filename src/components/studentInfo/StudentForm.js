@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquare, faGripLines, faFile, faSignal, faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
+//<FontAwesomeIcon icon={faGripLines} className="icon-grip" />
+//<FontAwesomeIcon icon={faSquare} className="icon-square" />
 import './StudentForm.css';
 
 function StudentForm({ onSubmit }) {
@@ -30,13 +34,16 @@ function StudentForm({ onSubmit }) {
   };
 
   return (
-    <div id="form-container" className="container mt-5">
+    <div id="form-container" className="container">
       {/* Student Form Heading */}
-      <h1 className="text-center mb-4">Student Form</h1>
+      <h1 style={{ fontFamily: 'Futura' }} className="text-center mb-4">
+        Student Form
+      </h1>
+      <hr />
 
       {/* Form */}
-      <form id="studentForm" className="border p-4">
-        <h4 className="text-center mb-4">Enter the student information below and click submit</h4>
+      <form id="studentForm" className="border p-3">
+        <h4 className="text-center mt-2">Enter the student information below and click submit</h4>
         {/* First Name */}
         <div className="mb-3">
           <label htmlFor="firstName" className="form-label">First Name:</label>

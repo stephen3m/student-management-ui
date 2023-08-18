@@ -4,10 +4,6 @@ body, h1, form {
     font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #b5985b;
-}
-
 .container {
     max-width: 1000px;
     padding: 60px;

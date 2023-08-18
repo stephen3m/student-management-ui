@@ -112,11 +112,13 @@ function UpdateRecords({
   };
 
   return (
-    <div className="container">
-      <h1 className="text-center">Change Student Records</h1>
+    <div id="update-records-container" className="container">
+      <h1 style={{ fontFamily: 'Futura' }} className="text-center">Change Student Records</h1>
+      <hr />
 
       <div id="update-student-records-div" className="border">
-        <h3>Enter a student ID and select a field to change:</h3>
+        <h4>Enter a student ID and select a field to change:</h4>
+        <hr />
         <label id="studentIdLabel" htmlFor="studentId">Enter Student ID:</label> <br />
         <input type="number" id="studentId" name="studentId" value={studentId} onChange={(e) => setStudentId(e.target.value)} required /><br /><br />
 
@@ -132,6 +134,7 @@ function UpdateRecords({
 
         {showFnDiv && (
           <div id="fnDiv">
+            <hr />
             <h3>Enter Updated Information</h3>
             <label htmlFor="updateStudentFn">New first name:</label>
             <input
@@ -148,7 +151,8 @@ function UpdateRecords({
 
         {showLnDiv && (
           <div id="lnDiv">
-            <h3>Enter Updated Information</h3>
+            <hr />
+            <h4>Enter Updated Information</h4>
             <label htmlFor="updateStudentLn">New last name:</label>
             <input
               type="text"
@@ -164,6 +168,7 @@ function UpdateRecords({
 
         {showAgeDiv && (
           <div id="ageDiv">
+            <hr />
             <h3>Enter Updated Information</h3>
             <label htmlFor="updateStudentAge">New age:</label>
             <input
@@ -181,6 +186,7 @@ function UpdateRecords({
 
         {showPhoneNumberDiv && (
           <div id="phoneNumberDiv">
+            <hr />
             <h3>Enter Updated Information</h3>
             <label htmlFor="updateStudentPhoneNumber">New phone number:</label>
             <input
@@ -197,6 +203,7 @@ function UpdateRecords({
 
         {showInstrumentDiv && (
           <div id="instrumentDiv">
+            <hr />
             <h3>Enter Updated Information</h3>
             <label htmlFor="updateStudentInstrument">New instrument:</label><br />
             <select
@@ -214,12 +221,14 @@ function UpdateRecords({
             <button type="button" className="updateSubmitButton" onClick={handleUpdateInstrument}>Submit</button>
           </div>
         )}
+        <br />
       </div>
 
       <hr />
 
       <div id="delete-student-records-div" className="border">
         <h3>Delete student records here:</h3>
+        <hr />
         <label id="studentIdLabel" htmlFor="deleteStudentId">Enter Student ID:</label> <br />
         <input type="number" id="deleteStudentId" name="deleteStudentId" value={deleteStudentId} onChange={(e) => setDeleteStudentId(e.target.value)} required /><br /><br />
         <button type="button" id="deleteStudentButton" onClick={handleDeleteStudent}>Delete Student</button><br /><br />

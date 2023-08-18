@@ -83,7 +83,8 @@ const EventComponent = ({ event }) => {
 
   return (
     <div className="calendar-container">
-      <h2>Schedule</h2>
+      <h1 style={{ fontFamily: 'Futura' }} className="text-center">Lesson Calendar</h1>
+      <hr />
       <Calendar
         localizer={localizer}
         events={events}
