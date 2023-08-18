@@ -72,7 +72,7 @@ The Student Management System frontend provides the following main features:
 * CSS: Styling and layout enhancements
 
 ## Architecture Diagram
-![UML class](https://github.com/stephen3m/student-management-ui/assets/96703864/6cf3b621-973d-4858-8033-2e57f80dc497)
+![SMS (1)](https://github.com/stephen3m/student-management-ui/assets/96703864/be11345f-4dfc-4454-926b-ffa920a40aa4)
 
 ## Project Structure
 The project directory is organized as follows:
