@@ -11,7 +11,6 @@ This repository contains the frontend code for an interactive web application I 
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
 
-
 ## Project Overview
 
 The Student Management System frontend provides a user-friendly interface for managing student information. With navigation and interactive components, users can easily access and manipulate student records, update lesson schedules, and track payment details.
