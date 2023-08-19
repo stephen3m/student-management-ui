@@ -6,9 +6,9 @@ This repository contains the frontend code for an interactive web application I 
 
 - [Project Overview](#project-overview)
 - [Project Screenshots](#screenshots)
-- [Installation](#installation)
+- [Setup](#setup)
 - [Usage](#usage)
-- [Technologies Used](#technologies-used)
+- [Technologies and Languages Used](#technologies-and-languages-used)
 - [Architecture Diagram](#architecture-diagram)
 - [Project Structure](#project-structure)
 
@@ -27,7 +27,7 @@ The Student Management System frontend provides a user-friendly interface for ma
 ### Payment Tracker Page:
 ![PaymentTrackerPage](https://github.com/stephen3m/student-management-ui/assets/96703864/8eeeb4e8-8f63-4dcd-bf18-00703bdda75f)
 
-## Installation
+## Setup
 
 Follow these steps to set up and run the frontend of the Student Management System:
 
@@ -63,11 +63,12 @@ For setting up the backend part of this project, refer to https://github.com/ste
 The Student Management System frontend provides the following main features:
 
 * View and manage student records 
-* Schedule lessons, view and delete lessons on calendar display - includes daily, week, month, and agenda view
+* Schedule lessons, view, and delete lessons on calendar display (includes daily, week, month, and agenda view)
 * Add payment entries and track payment history
 
-## Technologies Used
+## Technologies and Languages Used
 * React JS: A JavaScript library for building user interfaces
+* JavaScript: Usage of asynchronous functions and the Fetch API to send HTTP requests
 * CSS: Styling and layout enhancements
 
 ## Architecture Diagram
