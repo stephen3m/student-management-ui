@@ -1,6 +1,6 @@
 # Student Management System - Frontend
 
-This repository contains the frontend code for an interactive web application I designed to manage student records, lesson scheduling, and payment tracking.
+This repository contains the frontend code for an interactive web application I designed to manage music student records, lesson scheduling, and payment tracking.
 
 ## Table of Contents
 
